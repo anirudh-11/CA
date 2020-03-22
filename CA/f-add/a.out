@@ -1,0 +1,162 @@
+#! /usr/bin/vvp
+:ivl_version "10.1 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x558da1531f60 .scope module, "priority_encoder" "priority_encoder" 2 7;
+ .timescale 0 0;
+    .port_info 0 /INPUT 10 "number"
+    .port_info 1 /OUTPUT 4 "leading_one"
+    .port_info 2 /OUTPUT 1 "validity"
+L_0x558da156b750 .functor NOT 1, L_0x558da156a570, C4<0>, C4<0>, C4<0>;
+L_0x558da156c790 .functor NOT 1, L_0x558da156a9c0, C4<0>, C4<0>, C4<0>;
+L_0x558da156c800 .functor NOT 1, L_0x558da156a570, C4<0>, C4<0>, C4<0>;
+L_0x558da156c870 .functor AND 1, L_0x558da156c790, L_0x558da156c800, C4<1>, C4<1>;
+L_0x558da156c9d0 .functor AND 1, L_0x558da156a3d0, L_0x558da156a570, C4<1>, C4<1>;
+L_0x558da156ca90 .functor AND 1, L_0x558da156a3d0, L_0x558da156a9c0, C4<1>, C4<1>;
+L_0x558da156cd10 .functor OR 1, L_0x558da156cb40, L_0x558da156cc70, C4<0>, C4<0>;
+L_0x558da156ce20 .functor AND 1, L_0x558da156a3d0, L_0x558da156cd10, C4<1>, C4<1>;
+L_0x558da156d380 .functor OR 1, L_0x558da156d150, L_0x558da156d280, C4<0>, C4<0>;
+L_0x558da156d490 .functor OR 1, L_0x558da156d380, L_0x558da156d3f0, C4<0>, C4<0>;
+L_0x558da156d600 .functor AND 1, L_0x558da156a3d0, L_0x558da156d490, C4<1>, C4<1>;
+v0x558da1559080_0 .net *"_s21", 0 0, L_0x558da156c790;  1 drivers
+v0x558da1559180_0 .net *"_s23", 0 0, L_0x558da156c800;  1 drivers
+v0x558da1559260_0 .net *"_s29", 0 0, L_0x558da156c9d0;  1 drivers
+v0x558da1559320_0 .net *"_s33", 0 0, L_0x558da156ca90;  1 drivers
+v0x558da1559400_0 .net *"_s38", 0 0, L_0x558da156cb40;  1 drivers
+v0x558da15594e0_0 .net *"_s40", 0 0, L_0x558da156cc70;  1 drivers
+v0x558da15595c0_0 .net *"_s41", 0 0, L_0x558da156cd10;  1 drivers
+v0x558da15596a0_0 .net *"_s43", 0 0, L_0x558da156ce20;  1 drivers
+v0x558da1559780_0 .net *"_s49", 0 0, L_0x558da156d150;  1 drivers
+v0x558da1559860_0 .net *"_s51", 0 0, L_0x558da156d280;  1 drivers
+v0x558da1559940_0 .net *"_s52", 0 0, L_0x558da156d380;  1 drivers
+v0x558da1559a20_0 .net *"_s55", 0 0, L_0x558da156d3f0;  1 drivers
+v0x558da1559b00_0 .net *"_s56", 0 0, L_0x558da156d490;  1 drivers
+v0x558da1559be0_0 .net *"_s58", 0 0, L_0x558da156d600;  1 drivers
+v0x558da1559cc0_0 .net "leading_one", 3 0, L_0x558da156cf70;  1 drivers
+L_0x7f2f97d02018 .functor BUFT 1, C4<1000000100>, C4<0>, C4<0>, C4<0>;
+v0x558da1559da0_0 .net "number", 9 0, L_0x7f2f97d02018;  1 drivers
+v0x558da1559e80_0 .net "partial_leading_one", 4 0, L_0x558da156c600;  1 drivers
+v0x558da155a070_0 .net "v1", 0 0, L_0x558da156a570;  1 drivers
+v0x558da155a110_0 .net "v2", 0 0, L_0x558da156a9c0;  1 drivers
+v0x558da155a1e0_0 .net "v3", 0 0, L_0x558da156b8f0;  1 drivers
+v0x558da155a2b0_0 .net "validity", 0 0, L_0x558da156a3d0;  1 drivers
+E_0x558da1522110/0 .event edge, v0x558da1559da0_0, v0x558da155a2b0_0, v0x558da1559cc0_0, v0x558da1559e80_0;
+E_0x558da1522110/1 .event edge, v0x558da1556f30_0, v0x558da1557f70_0, v0x558da1558f40_0;
+E_0x558da1522110 .event/or E_0x558da1522110/0, E_0x558da1522110/1;
+L_0x558da156a3d0 .reduce/or L_0x7f2f97d02018;
+L_0x558da156a830 .part L_0x7f2f97d02018, 8, 2;
+L_0x558da156b620 .part L_0x7f2f97d02018, 4, 4;
+L_0x558da156c530 .part L_0x7f2f97d02018, 0, 4;
+L_0x558da156c600 .concat8 [ 2 2 1 0], L_0x558da156c020, L_0x558da156b110, L_0x558da156a770;
+L_0x558da156cb40 .part L_0x558da156c600, 1, 1;
+L_0x558da156cc70 .part L_0x558da156c600, 3, 1;
+L_0x558da156cf70 .concat8 [ 1 1 1 1], L_0x558da156d600, L_0x558da156ce20, L_0x558da156ca90, L_0x558da156c9d0;
+L_0x558da156d150 .part L_0x558da156c600, 0, 1;
+L_0x558da156d280 .part L_0x558da156c600, 2, 1;
+L_0x558da156d3f0 .part L_0x558da156c600, 4, 1;
+S_0x558da152d740 .scope module, "p1" "priority_encoder_2" 2 25, 3 1 0, S_0x558da1531f60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 2 "number_2"
+    .port_info 1 /OUTPUT 1 "leading_one_2"
+    .port_info 2 /OUTPUT 1 "validity_2"
+    .port_info 3 /INPUT 1 "prev_validity_2"
+L_0x7f2f97d02060 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_0x558da156a570 .functor AND 1, L_0x558da156a4a0, L_0x7f2f97d02060, C4<1>, C4<1>;
+L_0x558da156a770 .functor AND 1, L_0x558da156a570, L_0x558da156a680, C4<1>, C4<1>;
+v0x558da1535ec0_0 .net *"_s1", 0 0, L_0x558da156a4a0;  1 drivers
+v0x558da1556bc0_0 .net *"_s5", 0 0, L_0x558da156a680;  1 drivers
+v0x558da1556ca0_0 .net "leading_one_2", 0 0, L_0x558da156a770;  1 drivers
+v0x558da1556d40_0 .net "number_2", 1 0, L_0x558da156a830;  1 drivers
+v0x558da1556e20_0 .net "prev_validity_2", 0 0, L_0x7f2f97d02060;  1 drivers
+v0x558da1556f30_0 .net "validity_2", 0 0, L_0x558da156a570;  alias, 1 drivers
+L_0x558da156a4a0 .reduce/or L_0x558da156a830;
+L_0x558da156a680 .part L_0x558da156a830, 1, 1;
+S_0x558da1557070 .scope module, "p2" "priority_encoder_4" 2 26, 4 1 0, S_0x558da1531f60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "number_4"
+    .port_info 1 /OUTPUT 2 "leading_one_4"
+    .port_info 2 /OUTPUT 1 "validity_4"
+    .port_info 3 /INPUT 1 "prev_validity_4"
+L_0x558da156a9c0 .functor AND 1, L_0x558da156a920, L_0x558da156b750, C4<1>, C4<1>;
+L_0x558da156ad60 .functor NOT 1, L_0x558da156ac60, C4<0>, C4<0>, C4<0>;
+L_0x558da156ae00 .functor AND 1, L_0x558da156abc0, L_0x558da156ad60, C4<1>, C4<1>;
+L_0x558da156af10 .functor OR 1, L_0x558da156aad0, L_0x558da156ae00, C4<0>, C4<0>;
+L_0x558da156b050 .functor AND 1, L_0x558da156a9c0, L_0x558da156af10, C4<1>, C4<1>;
+L_0x558da156b380 .functor OR 1, L_0x558da156b200, L_0x558da156b2e0, C4<0>, C4<0>;
+L_0x558da156b4d0 .functor AND 1, L_0x558da156a9c0, L_0x558da156b380, C4<1>, C4<1>;
+v0x558da1557260_0 .net *"_s1", 0 0, L_0x558da156a920;  1 drivers
+v0x558da1557320_0 .net *"_s11", 0 0, L_0x558da156ac60;  1 drivers
+v0x558da1557400_0 .net *"_s12", 0 0, L_0x558da156ad60;  1 drivers
+v0x558da15574c0_0 .net *"_s14", 0 0, L_0x558da156ae00;  1 drivers
+v0x558da15575a0_0 .net *"_s16", 0 0, L_0x558da156af10;  1 drivers
+v0x558da15576d0_0 .net *"_s18", 0 0, L_0x558da156b050;  1 drivers
+v0x558da15577b0_0 .net *"_s24", 0 0, L_0x558da156b200;  1 drivers
+v0x558da1557890_0 .net *"_s26", 0 0, L_0x558da156b2e0;  1 drivers
+v0x558da1557970_0 .net *"_s27", 0 0, L_0x558da156b380;  1 drivers
+v0x558da1557a50_0 .net *"_s29", 0 0, L_0x558da156b4d0;  1 drivers
+v0x558da1557b30_0 .net *"_s7", 0 0, L_0x558da156aad0;  1 drivers
+v0x558da1557c10_0 .net *"_s9", 0 0, L_0x558da156abc0;  1 drivers
+v0x558da1557cf0_0 .net "leading_one_4", 1 0, L_0x558da156b110;  1 drivers
+v0x558da1557dd0_0 .net "number_4", 3 0, L_0x558da156b620;  1 drivers
+v0x558da1557eb0_0 .net "prev_validity_4", 0 0, L_0x558da156b750;  1 drivers
+v0x558da1557f70_0 .net "validity_4", 0 0, L_0x558da156a9c0;  alias, 1 drivers
+L_0x558da156a920 .reduce/or L_0x558da156b620;
+L_0x558da156aad0 .part L_0x558da156b620, 3, 1;
+L_0x558da156abc0 .part L_0x558da156b620, 1, 1;
+L_0x558da156ac60 .part L_0x558da156b620, 2, 1;
+L_0x558da156b110 .concat8 [ 1 1 0 0], L_0x558da156b050, L_0x558da156b4d0;
+L_0x558da156b200 .part L_0x558da156b620, 3, 1;
+L_0x558da156b2e0 .part L_0x558da156b620, 2, 1;
+S_0x558da15580b0 .scope module, "p3" "priority_encoder_4" 2 27, 4 1 0, S_0x558da1531f60;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "number_4"
+    .port_info 1 /OUTPUT 2 "leading_one_4"
+    .port_info 2 /OUTPUT 1 "validity_4"
+    .port_info 3 /INPUT 1 "prev_validity_4"
+L_0x558da156b8f0 .functor AND 1, L_0x558da156b850, L_0x558da156c870, C4<1>, C4<1>;
+L_0x558da156bca0 .functor NOT 1, L_0x558da156bb40, C4<0>, C4<0>, C4<0>;
+L_0x558da156bd10 .functor AND 1, L_0x558da156baa0, L_0x558da156bca0, C4<1>, C4<1>;
+L_0x558da156be20 .functor OR 1, L_0x558da156b9b0, L_0x558da156bd10, C4<0>, C4<0>;
+L_0x558da156bf60 .functor AND 1, L_0x558da156b8f0, L_0x558da156be20, C4<1>, C4<1>;
+L_0x558da156c290 .functor OR 1, L_0x558da156c110, L_0x558da156c1f0, C4<0>, C4<0>;
+L_0x558da156c3e0 .functor AND 1, L_0x558da156b8f0, L_0x558da156c290, C4<1>, C4<1>;
+v0x558da1558230_0 .net *"_s1", 0 0, L_0x558da156b850;  1 drivers
+v0x558da15582f0_0 .net *"_s11", 0 0, L_0x558da156bb40;  1 drivers
+v0x558da15583d0_0 .net *"_s12", 0 0, L_0x558da156bca0;  1 drivers
+v0x558da1558490_0 .net *"_s14", 0 0, L_0x558da156bd10;  1 drivers
+v0x558da1558570_0 .net *"_s16", 0 0, L_0x558da156be20;  1 drivers
+v0x558da15586a0_0 .net *"_s18", 0 0, L_0x558da156bf60;  1 drivers
+v0x558da1558780_0 .net *"_s24", 0 0, L_0x558da156c110;  1 drivers
+v0x558da1558860_0 .net *"_s26", 0 0, L_0x558da156c1f0;  1 drivers
+v0x558da1558940_0 .net *"_s27", 0 0, L_0x558da156c290;  1 drivers
+v0x558da1558a20_0 .net *"_s29", 0 0, L_0x558da156c3e0;  1 drivers
+v0x558da1558b00_0 .net *"_s7", 0 0, L_0x558da156b9b0;  1 drivers
+v0x558da1558be0_0 .net *"_s9", 0 0, L_0x558da156baa0;  1 drivers
+v0x558da1558cc0_0 .net "leading_one_4", 1 0, L_0x558da156c020;  1 drivers
+v0x558da1558da0_0 .net "number_4", 3 0, L_0x558da156c530;  1 drivers
+v0x558da1558e80_0 .net "prev_validity_4", 0 0, L_0x558da156c870;  1 drivers
+v0x558da1558f40_0 .net "validity_4", 0 0, L_0x558da156b8f0;  alias, 1 drivers
+L_0x558da156b850 .reduce/or L_0x558da156c530;
+L_0x558da156b9b0 .part L_0x558da156c530, 3, 1;
+L_0x558da156baa0 .part L_0x558da156c530, 1, 1;
+L_0x558da156bb40 .part L_0x558da156c530, 2, 1;
+L_0x558da156c020 .concat8 [ 1 1 0 0], L_0x558da156bf60, L_0x558da156c3e0;
+L_0x558da156c110 .part L_0x558da156c530, 3, 1;
+L_0x558da156c1f0 .part L_0x558da156c530, 2, 1;
+    .scope S_0x558da1531f60;
+T_0 ;
+    %wait E_0x558da1522110;
+    %vpi_call 2 16 "$display", "num = %b, validity = %b, leading_one = %b, 2 = %b, 4 = %b, 4 = %b, v1 = %b, v2 = %b, v3 = %b", v0x558da1559da0_0, v0x558da155a2b0_0, v0x558da1559cc0_0, &PV<v0x558da1559e80_0, 4, 1>, &PV<v0x558da1559e80_0, 2, 2>, &PV<v0x558da1559e80_0, 0, 2>, v0x558da155a070_0, v0x558da155a110_0, v0x558da155a1e0_0 {0 0 0};
+    %jmp T_0;
+    .thread T_0, $push;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "priority_encoder_10.v";
+    "./priority_encoder_2.v";
+    "./priority_encoder_4.v";
